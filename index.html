@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Web Page</title>
+  <script>
+    // Fungsi untuk meminta password
+    function verifyPassword() {
+      const correctPassword = "icverif24";
+      let userInput;
+
+      // Looping hingga password benar
+      while (userInput !== correctPassword) {
+        userInput = prompt("Enter the password to access this page:");
+        if (userInput === null) {
+          // Jika user menekan Cancel, keluar dari halaman
+          alert("Access denied.");
+          window.location.href = "about:blank";
+          return false;
+        }
+        if (userInput !== correctPassword) {
+          alert("Incorrect password, please try again.");
+        }
+      }
+
+      // Jika password benar
+      alert("Access granted!");
+      return true;
+    }
+  </script>
+</head>
+<body onload="verifyPassword()">
+  <h1>Welcome to the secure page!</h1>
+  <p>This content is protected by a password.</p>
+</body>
+</html>
